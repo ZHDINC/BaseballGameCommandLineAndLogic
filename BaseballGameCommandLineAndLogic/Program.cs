@@ -6,7 +6,8 @@ namespace BaseballGameCommandLineAndLogic
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            InningHalf inningHalf = new InningHalf();
+            inningHalf.RunInningHalf();
         }
     }
 }

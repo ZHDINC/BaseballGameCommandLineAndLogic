@@ -19,5 +19,16 @@ namespace BaseballGameCommandLineAndLogic
             
         }
 
+        public Team AwayTeam
+        {
+            get => awayTeam;
+        }
+
+        public Team HomeTeam
+        {
+            get => homeTeam;
+        }
+
+
     }
 }
