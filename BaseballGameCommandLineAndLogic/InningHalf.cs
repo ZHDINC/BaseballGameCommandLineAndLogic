@@ -36,9 +36,10 @@ namespace BaseballGameCommandLineAndLogic
         private void AtBat()
         {
             bool stillBatting = true;
+            bool hitByPitch = false;
             while (stillBatting)
             {
-                Console.WriteLine("1) Ball 2) Strike 3) Foul 4) Hit: ");
+                Console.WriteLine("1) Ball 2) Strike 3) Foul 4) Hit 5) Runner hit by pitch: ");
                 int result = Int32.Parse(Console.ReadLine());
                 switch (result)
                 {
@@ -57,6 +58,10 @@ namespace BaseballGameCommandLineAndLogic
                         balls = 0;
                         strikes = 0;
                         break;
+                    case 5:
+                        balls = 4;
+                        hitByPitch = true;
+                        break;
                 }
                 if(strikes == 3)
                 {
@@ -65,13 +70,29 @@ namespace BaseballGameCommandLineAndLogic
                     balls = 0;
                     stillBatting = false;
                 }
+                if(balls == 4)
+                {
+                    AdvanceBases(hitByPitch);
+                    balls = 0;
+                    strikes = 0;
+                }
                 Console.WriteLine($"Strikes: {strikes} Balls: {balls} Outs: {outs}");
             }
         }
 
+        private void AdvanceBases(bool hitByPitch)
+        {
+            if(hitByPitch)
+            {
+                Console.WriteLine("Runner is hit by pitch and advances to first.")
+            }
+            else
+                Console.WriteLine("Runner advances to first.");
+        }
+
         private void Hit()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Runner got a hit.");
         }
     }
 }
