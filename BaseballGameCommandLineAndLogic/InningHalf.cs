@@ -4,6 +4,12 @@ using System.Text;
 
 namespace BaseballGameCommandLineAndLogic
 {
+    public enum Inning
+    {
+        TopOfInning,
+        BottomOfInning
+    }
+
     class InningHalf
     {
         private int outs = 0;
@@ -84,7 +90,7 @@ namespace BaseballGameCommandLineAndLogic
         {
             if(hitByPitch)
             {
-                Console.WriteLine("Runner is hit by pitch and advances to first.")
+                Console.WriteLine("Runner is hit by pitch and advances to first.");
             }
             else
                 Console.WriteLine("Runner advances to first.");

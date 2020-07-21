@@ -27,6 +27,41 @@ namespace BaseballGameCommandLineAndLogic
             playerName = name;
         }
 
+        public void Bat()
+        {
+            atBats++;
+        }
+
+        public virtual bool Steal()
+        {
+            return true;
+        }
+    }
+
+    public enum TypeOfPitcher
+    {
+        Starter,
+        Relief,
+        Closer
+    }
+
+    class Pitcher : Player
+    {
+        private int pitches = 0;
+        private TypeOfPitcher pitcherType;
+        public Pitcher(string name, TypeOfPlayer typeOfPlayer, TypeOfPitcher typeOfPitcher) : base (name, typeOfPlayer)
+        {
+            pitcherType = typeOfPitcher;
+        }
+
+        public int Pitches
+        {
+            get;
+        }
         
+        public void Pitch()
+        {
+            pitches++;
+        }
     }
 }
