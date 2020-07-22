@@ -33,7 +33,7 @@ namespace BaseballGameCommandLineAndLogic
             while (gameInProgress)
             {
                 InningHalf inning = new InningHalf();
-                inning.RunInningHalf();
+                inning.RunInningHalf(this);
                 if(inningType == Inning.TopOfInning && currentInning < 9)
                 {
                     inningType = Inning.BottomOfInning;
@@ -46,19 +46,20 @@ namespace BaseballGameCommandLineAndLogic
                 {
                     if(homeTeam.Score > awayTeam.Score)
                     {
-
+                        Console.WriteLine($"{homeTeam.Name} wins the game. Score {homeTeam.Score} to {awayTeam.Score}");
+                        gameInProgress = false;
                     }
                     inningType = Inning.BottomOfInning;
                 }
-                else if(inningType == Inning.BottomOfInning && currentInning >= 0)
+                else if(inningType == Inning.BottomOfInning && currentInning >= 9 && gameInProgress)
                 {
                     if(homeTeam.Score > awayTeam.Score)
                     {
-
+                        Console.WriteLine($"{homeTeam.Name} wins the game. Score {homeTeam.Score} to {awayTeam.Score}");
                     }
                     else if(homeTeam.Score < awayTeam.Score)
                     {
-
+                        Console.WriteLine($"{awayTeam.Name} wins the game. Score {awayTeam.Score} to {homeTeam.Score}");
                     }
                     else
                     {

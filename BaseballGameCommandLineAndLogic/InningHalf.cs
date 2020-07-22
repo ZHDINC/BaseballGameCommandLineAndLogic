@@ -22,7 +22,7 @@ namespace BaseballGameCommandLineAndLogic
 
         }
 
-        public int RunInningHalf()
+        public int RunInningHalf(Game game)
         {
             bool inningInProgress = true;
             while(inningInProgress)

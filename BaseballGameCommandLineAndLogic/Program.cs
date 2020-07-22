@@ -15,8 +15,8 @@ namespace BaseballGameCommandLineAndLogic
             {
                 new Player("Velaz DeSanto", TypeOfPlayer.FirstBaseman)
             };
-            Team homeTeam = new Team(homeTeamPlayers);
-            Team awayTeam = new Team(awayTeamPlayers);
+            Team homeTeam = new Team(homeTeamPlayers, "Team 1");
+            Team awayTeam = new Team(awayTeamPlayers, "Team 2");
             Game game = new Game(homeTeam, awayTeam);
             game.RunGame();
         }
